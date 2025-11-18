@@ -1,0 +1,21 @@
+# Fișiere temporare sau editor
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Node / NPM (dacă folosești)
+node_modules/
+npm-debug.log
+
+# Build / dist folder
+dist/
+build/
+
+# Fișiere media mari (nu le urmări în Git)
+*.mp3
+*.mp4
+*.wav
+*.mov
+*.avi
