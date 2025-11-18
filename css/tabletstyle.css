@@ -1,0 +1,61 @@
+/* TABLET screen - responsive design*/
+@media screen and (min-width: 640px) and (max-width: 959px) {
+    nav ul li {
+        display: inline-block;          /* Stack vertically */
+        border-radius: 1em;               /* rounded corners */
+        margin: 7px 0;                 /* Add spacing between */
+        box-shadow: 0.5em 0.5em 1em violet;   /* add shadow effect */
+    }   
+
+    figure{
+        box-shadow: 0.5em 0.5em 1em violet;   /* add shadow effect */
+    };
+   
+    .desktop{
+        display: none;                 /* hide the left column on TABLET display */  
+    } 
+
+    .tablet{
+        display: block;                 /* show the right column on TABLET display */
+    } 
+
+    main{
+        margin-top: 10px;               /* space above main content */  
+    }
+    
+    main div .center { 
+        float: left;                            /* center align image */        
+        width: 70% !important;                             /* set width for center aligned image */         
+        padding: 10px;                          /* spacing inside columns */ 
+        margin: 0;                              /* center the image horizontally */
+        border-right: .2em solid black;       /* add right border to separate from text */ 
+        box-sizing: border-box;                 /* include padding in width */
+    }
+
+    main div .right {
+        float: left;                    /* float image to the right */  
+        width: 30%;                     /* set width for right aligned image */  
+        padding: 10px;                  /* spacing inside columns */        
+        box-sizing: border-box;         /* include padding in width */   
+    }
+
+    main .row::after {
+        content: "";                    /* clear floats */
+        display: table;                 /* clear floats */
+        clear: both;                    /* clear floats */
+    }
+
+    footer{
+        box-shadow: 0.5em 0.5em 1em black;   /* add shadow effect */
+    }
+
+    /* Tablet form inputs and textarea */
+    form input,
+    form select,
+    form textarea {
+        width: 60% !important;      /* slightly narrower than mobile */
+        box-sizing: border-box;     /* include padding/border in width */
+        margin-bottom: 5px;        /* vertical spacing between fields */
+    }
+
+}

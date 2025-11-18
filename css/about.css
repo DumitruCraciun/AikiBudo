@@ -1,0 +1,54 @@
+/* Audio and video styling */
+audio, video, iframe {
+    border: 3px solid darkred;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(100, 0, 0, 0.3);
+}
+
+/* Subtle hover glow */
+audio:hover, video:hover, iframe:hover {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+/* Responsive media */
+.media-row {
+    width: 100%;
+    overflow: hidden; /* contain floats */
+}
+
+.media-item {
+    float: left;
+    width: 33.33%;       /* 3 items in a row on desktop */
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/* make videos/audio responsive */
+.media-item audio,
+.media-item video,
+.media-item iframe {
+    width: 100%;
+    height: auto;        /* iframe height handled by your 16:9 container */
+}
+
+/* Tablet and Mobile */
+@media screen and (max-width: 959px) {  /* tablet */
+    .media-item {
+        float: none;
+        width: 80%;      /* stack vertically */
+       margin: 0 auto 10px auto; /* center and add bottom spacing */
+        
+    }
+}
+
+@media screen and (max-width: 639px) {  /* mobile */
+    .media-item {
+        width: 80%;      /* full width on small screens */
+        margin: 0 auto 10px auto; /* center and add bottom spacing */
+    }
+}
+
+
+
+
+

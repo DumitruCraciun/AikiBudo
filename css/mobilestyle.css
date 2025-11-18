@@ -1,0 +1,56 @@
+/* MOBILE screens - responsive design*/
+@media screen and (max-width: 639px) {
+    nav ul {
+        display: block;                /* Stack vertically */
+        padding: 0 10px;                     /* reset padding */
+        margin: 0;                      /* reset margin */
+        margin-top: -2em;                     /* adjust margin to align with logo */
+        margin-bottom: 15px;                  /* space below nav */;
+    }
+
+    nav ul li {
+        display: block;                 /* Stack vertically */
+        margin: 7px 0;                 /* Add spacing between */
+        text-align: center;             /* Center align text */
+    }
+
+    nav ul li a {
+        display: block;                 /* Make the entire area clickable */
+        width: 100%;                  /* Full width */
+        box-sizing: border-box;       /* Include padding in width */
+        white-space: normal;       /* allow text to wrap */
+        overflow-wrap: break-word; /* prevent overflow */
+        font-size: 0.9em;          /* optional: shrink text */
+    }
+
+    .tablet{
+        display: none;                 /* hide the right column on MOBILE display */
+    }
+
+    .desktop{
+        display: none;                 /* hide the left column on MOBILE display */  
+    }
+
+    main{
+        margin-top: 25px;               /* space above main content */
+    }
+
+    main div .center {
+        width: 100% !important;        /* stretch to full width */
+        float: none !important;        /* remove float */
+        margin: 0 !important;          /* remove desktop centering */
+        padding: 10px;                 /* optional spacing inside */
+        box-sizing: border-box;        /* include padding in width */        
+    }
+
+    /* Mobile form inputs and textarea */
+    form input,
+    form select,
+    form textarea {
+        width: 90% !important;      /* almost full screen width */
+        box-sizing: border-box;     /* include padding/border in width */
+        margin-bottom: 5px;        /* vertical spacing between fields */
+        text-size-adjust: 90%;   /* slightly larger text for readability */
+    }
+
+}

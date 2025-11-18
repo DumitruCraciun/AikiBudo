@@ -1,0 +1,178 @@
+@import url("mobilestyle.css");
+@import url("tabletstyle.css");
+
+body {
+    background-image: linear-gradient(red, yellow, blue, violet) !important; /* rainbow gradient background */
+}
+
+header img {
+    width: 100%;            /* make logo responsive */
+    height: auto;           /* maintain aspect ratio with viewport*/
+    max-width: 600px;       /* optional max width */    
+}
+
+nav {    
+    border-radius: 1.0em;                       /* rounded corners */
+    margin-top: 7px;                           /* space above nav */
+    font-weight: bold;                          /* bold font for nav elements */
+    text-align: center;                         /* center align nav items */
+}
+
+nav ul {
+    list-style: none;                   /* remove default padding and bullets */
+    display: flex;                      /* use flexbox for layout */
+    justify-content: space-between;     /* space items evenly */
+    padding: 0;                         /* vertical padding */
+    margin: 0 20px;                     /* horizontal margin */
+    gap: 10px;                          /* space between items */
+}
+
+nav ul li {
+    flex: 1;                          /* each item takes equal space */
+    text-align: center;                 /* center text in menu items */
+    min-width: 12%;                     /* ensure minimum width */
+    border-radius: 1.2em;                       /* rounded corners */
+    box-shadow: 0.5em 0.5em 0.5em violet;   /* add shadow effect */
+}
+
+/* Apply visual style (background, padding) to <a> element - it ensures that the whole colored area is clickable and accessible */
+nav ul li a {
+    display: block;                     /* make the entire area clickable */
+    background-color: lightcoral;     /* light coral background */
+    border-radius: 1em;                 /* rounded corners */
+    border-color: white;               /* white border */
+    padding: 10px 0;                     /* vertical padding */
+    color: white;                     /* white font */
+    text-decoration: none;              /* remove underline from hyperkink*/
+}
+
+figure{
+    text-align: center;                 /* center the figure */
+    background-image: linear-gradient(to right, white, palevioletred); /* subtle gradient background */
+    border-radius: 6em;                 /* rounded corners */
+    box-shadow: 0.5em 0.5em 0.5em red;   /* add shadow effect */
+    overflow: hidden;                  /* ensure rounded corners for images */    
+}
+
+figure img{
+    max-width: 600px;                  /* limit maximum width */
+    max-height: 200px;                 /* limit maximum height */  
+    width: 100%;                       /* make image responsive */
+    height: auto;                      /* maintain aspect ratio */
+}
+
+main {    
+    background-image: linear-gradient(red,orange, yellow, lightgreen, lightblue, violet, violet)   ; /* rainbow gradient background */
+    min-height: 400px;                  /* ensure minimum height of space for text */
+    border-radius: 1.0em;                 /* rounded corners */
+    padding: 20px;                        /* optional, spacing inside main */    
+    box-shadow: 0.5em 0.5em 1em black;   /* add shadow effect */
+}
+
+main div .left{
+    padding: 10px;                      /* spacing inside columns */
+    width: 20%;                         /* set width for left aligned image */
+    float: left;                        /* float image to the left */        
+}
+
+main div .center{
+    float: left;                        /* center align image */
+    padding: 10px;                      /* spacing inside columns */
+    width:54%;                         /* set width for center aligned image */
+    margin: 0 auto;                    /* center the image horizontally */    
+}
+
+main div .right{
+    float: right;                      /* float image to the right */  
+    /*padding: 10px;                     /* spacing inside columns */
+    width:30%;                        /* set width for right aligned image */     
+}
+
+main .row::after{
+    content: "";                        /* clear floats */
+    display: table;                     /* clear floats */
+    clear: both;                        /* clear floats */
+}
+
+footer {
+    padding: 10px;                      /* spacing inside footer */
+    text-align: left;                 /* left align footer text */
+    background-color: peachpuff;        /* light orange footer background */
+    background-image: linear-gradient(to right, peachpuff, gray);
+    border-top: solid 0.2em black;      /* thick black top border */
+    border-bottom: solid 0.2em black;   /* thin black bottom border */
+    border-radius: 1.0em;                 /* rounded corners */
+    margin-top: 1em;                      /* space above nav */
+    box-shadow: 0.5em 0.5em 1em black;   /* add shadow effect */
+}
+
+/* DESKTOP screens - responsive design*/
+@media screen and (min-width: 960px) {
+
+    header {
+        text-align: left;               /* Align logo to the left */
+        background-image: linear-gradient(to right, white, red, red, red)    ; /* subtle gradient background */
+    }
+
+    header img {
+        width: auto;                    /* reset width */
+        height: 5em;                   /* set fixed height */
+    }
+
+    nav {
+        float: right;                   /* Float nav to the right */
+        width: 57%;                     /* set width to 60% */
+        margin-top: -5.2em;             /* Adjust margin to align with logo */
+        background-color: red;     /* light blue nav background */
+        border: solid .85em red;            /* thick black top border */
+       
+    }
+
+    nav ul li {
+        display: inline-block;          /* Stack vertically */
+        margin: 10px 0;                 /* Add spacing between */
+    }
+
+     .desktop {
+        display: block;                 /* show the left column on DESKTOP display */  
+    }  
+    
+    main div .center{
+        float: left;                        /* center align image */
+        padding: 10px;                      /* spacing inside columns */
+        width:44%;                         /* set width for center aligned image */
+        margin: 0 auto;                    /* center the image horizontally */    
+        border-right: .2em solid black;   /* add right border to separate from text */
+        border-left: .2em solid black;   /* add left border to separate from text */
+    }
+
+    /* Mobile form inputs and textarea */
+    form input,
+    form select,
+    form textarea {
+        width: 400px !important;      /* almost full screen width */
+        box-sizing: border-box;     /* include padding/border in width */
+        margin-bottom: 5px;        /* vertical spacing between fields */        
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        display: block;           /* make buttons block elements */
+        width: 400px;              /* full width buttons */
+        margin: 10px left; /* center buttons with top margin */
+        background-color: darkred;  /* dark red background */
+        color: white;              /* white text */
+        border: none;               /* no border */
+        padding: 10px;              /* increase button height */
+        cursor: pointer;          /* pointer cursor on hover */
+        border-radius: 5px;        /* rounded corners */
+        transition: 0.3s;         /* smooth transition */       
+        font-size: .9em;   /* smaller text for narrow screens */        
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: crimson;
+    }
+}
+

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Enroll page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">  
+    <link rel="stylesheet" href="css/tables.css"> 
+
+    <script type="text/javascript">
+
+         let coursePrice = 0;  // GLOBAL so both functions can access it
+
+        function calculateTotal() {
+ 
+            // Get selected course price
+            let coursePrices = document.getElementsByName('course');            
+            for (let i = 0; i < coursePrices.length; i++) {
+                if (coursePrices[i].checked) {
+                    coursePrice = parseFloat(coursePrices[i].value);
+                    break;
+                }
+            }
+
+            // Get number of uniforms
+            let uniformCount = parseInt(document.getElementById('uniform').value) || 0;
+            let uniformPrice = uniformCount * 20;
+
+            // Calculate total
+            let total = coursePrice + uniformPrice;
+
+            // Display total
+            document.getElementById('total').value = '£' + total.toFixed(2);              
+        }
+
+        function validateForm() {   
+
+            // 1. Check all required fields in a loop
+            const requiredFields = ["firstname", "lastname", "email", "phone"];
+
+            for (let id of requiredFields) {
+                let field = document.getElementById(id);
+
+                // guard: element must exist
+                if (!field) {
+                    console.warn("Missing element with id:", id);
+                    continue;
+                }
+
+                // find label text
+                const label = document.querySelector('label[for="' + id + '"]');
+                const labelText = label ? label.textContent.trim() : id;
+
+                // check empty
+                if (field.value === null || field.value.trim() === "") {
+                    alert("Please fill in: " + labelText);
+                    field.focus();
+                    field.scrollIntoView({ behavior: "smooth", block: "center" });
+                    return false;
+                }
+
+                // check built-in validity
+                if (!field.checkValidity()) {
+                    alert(field.validationMessage || ("Please enter a valid " + labelText));
+                    field.focus();
+                    field.scrollIntoView({ behavior: "smooth", block: "center" });
+                    return false;
+                }
+            }
+
+            // 2. Check course selection (AFTER the loop)
+            if (coursePrice === 0) {
+                alert("Please select a course to enroll in.");
+                const firstRadio = document.querySelector('input[name="course"]');
+                if (firstRadio) firstRadio.focus();
+                return false;
+            }
+                      
+            resetForm();  // Reset form after successful submission
+            return true; 
+        }
+
+        function saveEnrollment() {
+            const data = {
+                firstname: document.getElementById("firstname").value,
+                lastname: document.getElementById("lastname").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                course: coursePrice,
+                uniforms: document.getElementById("uniform").value,
+                total: document.getElementById("total").value
+            };
+
+            // Save as JSON
+            localStorage.setItem("enrollmentData", JSON.stringify(data));
+
+            alert("Thank you for your submission!");
+        }
+
+
+        function resetForm() {
+            // Reset all input fields in the form
+            const formElements = ["firstname", "lastname", "email", "phone", "uniform", "total"];
+            for (let id of formElements) {
+                const field = document.getElementById(id);
+                if (field) {
+                    if (field.type === "number" || field.type === "text" || field.type === "email" || field.type === "tel") {
+                        field.value = "";
+                    }
+                }
+            }
+
+            // Reset course radio buttons
+            const courseRadios = document.getElementsByName("course");
+            for (let radio of courseRadios) {
+                radio.checked = false;
+            }
+
+            // Reset global coursePrice
+            coursePrice = 0;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header><img src="media/images/logo.png" alt="Martial Arts Logo"></header>
+
+    <!--Create a list of elements <ul></ul>-->
+    <nav>
+        <ul>
+            <!--Correct semantic structure for navigation menus - five proper list items, each containing one link-->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="enroll.html">Enroll</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Welcome to Martial Arts School</h1>
+        <p>Your journey to mastering martial arts begins here. Join us to learn discipline, strength, and confidence.</p>
+
+        <div class="schedule">
+            <table class ="enroll-text">
+                <caption>Personal Information</caption>
+
+                 <!-- set column widths --> 
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col style="width: 70%;">
+                </colgroup>
+
+                <tr>
+                    <td><label for="firstname">First Name</label></td>
+                    <td><input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required></td>
+                </tr>
+
+                <tr>
+                    <td><label for="lastname">Last Name</label></td>
+                    <td><input type="text" id="lastname" name="lastname" placeholder="Enter your surname" required></td>
+                </tr>
+
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="email" id="email" name="email" placeholder="Enter your email" required></td>   <!-- use type="email" for email autoverify patern -->
+                </tr>
+
+                <tr>
+                    <td><label for="phone">Phone Number</label></td>
+                    <td><input type="tel" id="phone" name="phone" placeholder="Enter your UK phone number"
+                    pattern="^(\+44\s?7\d{3}\s?\d{6}|07\d{3}\s?\d{6}|01\d{2}\s?\d{6,7}|02\d{2}\s?\d{6,7})$"
+                    title="Please enter a valid UK phone number" required></td>     <!-- use type="tel" and pattern for phone number autoverify patern -->
+                </tr>             
+            </table>
+            
+            <table class ="enroll-table">
+
+                <caption>Enroll</caption>
+
+                 <!-- set column widths -->
+                <colgroup>
+                    <col style="width: 60%;">
+                    <col style="width: 20%;">
+                    <col style="width: 20%;">
+                </colgroup>
+
+                <tr>            
+                    <td>Adult (16+)</td>
+                    <td>£75</td>
+                    <td><input type="radio" id="adult" name="course" value="75" onchange="calculateTotal()"></td>
+                </tr>
+
+                <tr>            
+                    <td>Teen (aged 12-15)</td>
+                    <td>£50</td>
+                    <td><input type="radio" id="teen" name="course" value="50" onchange="calculateTotal()"></td>
+                </tr>
+
+                <tr>            
+                    <td>Child (aged 6-11)</td>
+                    <td>£35</td>
+                    <td><input type="radio" id="child" name="course" value="35" onchange="calculateTotal()"></td>
+                </tr>
+
+                <tr>
+                    <td>Uniforms</td>
+                    <td>£20</td>
+                    <td><input type="number" id="uniform" name="uniform" min="0" value="0" oninput="calculateTotal()"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">Total Cost</td>
+                    <td><input type="text" id="total" name="total" readonly disabled></td>
+                </tr>                
+
+            </table>
+            
+            <p><input type="submit" value="Submit" onclick="if(validateForm()) saveEnrollment();"></p>
+            <input type="reset" id="reset" value="Reset" onclick="resetForm()">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Martial Arts School. Website designed and built by Dumitru Craciun.</p>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Contact page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">    
+</head>
+
+<body>
+
+    <header><img src="media/images/logo.png" alt="Martial Arts Logo"></header>
+
+    <!--Create a list of elements <ul></ul>-->
+    <nav>
+        <ul>
+            <!--Correct semantic structure for navigation menus - five proper list items, each containing one link-->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="enroll.html">Enroll</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Welcome to Martial Arts School</h1>
+        <p>Your journey to mastering martial arts begins here. Join us to learn discipline, strength, and confidence.</p>
+
+        <form>
+            <h2>Contact Us</h2>
+
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="course">Course:</label><br>
+            <select id="course" name="course" required>
+                <option value="" disabled selected hidden>Select a course</option>
+                <option value="adult">Adult</option>
+                <option value="teen">Teen</option>
+                <option value="child">Child</option>            
+            </select><br><br>
+
+            <label for="level">Skill level:</label><br>
+            <select id="level" name="level" required>
+                <option value="" disabled selected hidden>Select your skill level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>            
+            </select><br><br>
+
+            <textarea id="textarea" rows="10" cols="50" placeholder="Your message here..."></textarea><br><br>
+            
+            <input type="submit" id="submit" value="Submit">
+        </form>        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Martial Arts School. Website designed and built by Dumitru Craciun.</p>
+    </footer>
+
+
+</body>
+
+</html>

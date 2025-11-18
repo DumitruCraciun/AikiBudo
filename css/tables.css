@@ -1,0 +1,129 @@
+/* Make table responsive */
+.schedule {
+    width: 100%;             /* take full width of parent */
+    overflow-x: auto;        /* allow horizontal scroll if needed */
+}
+
+.schedule table {                           /* schedule table styles */
+    width: 95%;                             /* full width table */
+    border: solid 0.1em black;            /* black border */
+    border-collapse: collapse;              /* collapse borders */
+    width: 80%;                             /* full width table */    
+    margin: 30px 10%;                       /* center table with vertical space */
+    background-color: lightyellow;        /* light yellow background */   
+    box-shadow: 0.3em 0.3em 0.5em rgb(80, 34, 80);   /* add shadow effect */
+}
+
+.schedule caption {                         /* schedule table header styles */
+    border: 0.1em solid black;            /* black border */
+    font-weight: bold;                      /* bold caption */    
+    font-size: 1.5em;                       /* larger font size */    
+}
+
+.schedule th, .schedule td, .schedule tr{                /* schedule table cell styles */
+    border: 0.1em solid black;            /* black border */
+    padding: .5em;                          /* cell padding */
+    text-align: center;                     /* center align text */
+}
+
+.schedule th {                              /* schedule table header cell styles */
+    background-color: lightgray;          /* light gray header background */
+    font-weight: bold;                      /* bold header text */
+}   
+
+.schedule  table.enroll-table, table.enroll-text {
+    width: 400px;            /* table takes 70% of page width */
+    margin-left: 0;        /* align left */
+    margin-right: auto;    /* keep left-aligned */
+    table-layout: fixed;   /* fixed table layout */
+}
+
+.schedule table.enroll-table input[type="number"],
+.schedule table.enroll-table input[type="text"] {
+    width: 90%;                                     /* input field takes 90% of cell width */
+    box-sizing: border-box;                         /* include padding and border in width */
+    text-align: center;                             /* center text inside input field */
+    padding: 2px;                                   /* padding inside input field */
+}
+
+.schedule table.enroll-text input[type="text"],
+.schedule table.enroll-text input[type="email"],
+.schedule table.enroll-text input[type="tel"] {
+    width: 100%;                                     /* input field takes 90% of cell width */
+    box-sizing: border-box;                         /* include padding and border in width */
+    text-align: left;                               /* left text inside input field */   
+}
+
+/* Optional: reduce font size on TABLET screens */
+@media screen and (max-width: 959px) {
+    .schedule table {
+        font-size: 0.9em;
+        width: 100%;  
+        margin: auto;  /* center table on small screens */
+    }
+
+    .schedule table.enroll-table,
+    .schedule table.enroll-text {
+        width: 80%;
+        font-size: 0.9em;
+        margin: 0 auto 20px auto;   /* top auto, bottom 20px, center horizontally */
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        display: block;           /* make buttons block elements */
+        width: 80%;              /* full width buttons */
+        margin: 10px auto 0 auto; /* center buttons with top margin */
+        background-color: darkred;  /* dark red background */
+        color: white;              /* white text */
+        border: none;               /* no border */
+        padding: 10px;              /* increase button height */
+        cursor: pointer;          /* pointer cursor on hover */
+        border-radius: 5px;        /* rounded corners */
+        transition: 0.3s;         /* smooth transition */       
+        font-size: 0.8em;   /* smaller text for narrow screens */
+        padding: 6px;       /* smaller button height */
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: crimson;
+    }
+}
+
+/* Optional: reduce font size on PHONE screens */
+@media screen and (max-width: 639px) {
+    .schedule table {
+        font-size: 0.8em;
+        width: 100%;  
+        margin: auto;  /* center table on small screens */
+    }
+
+    .schedule table.enroll-table,
+    .schedule table.enroll-text {
+        width: 95%;
+        font-size: 0.8em;
+        margin: 0 auto 20px auto;   /* add bottom spacing */       
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        display: block;           /* make buttons block elements */
+        width: 95%;              /* full width buttons */
+        margin: 10px auto 0 auto; /* center buttons with top margin */
+        background-color: darkred;  /* dark red background */
+        color: white;              /* white text */
+        border: none;               /* no border */
+        padding: 10px;              /* increase button height */
+        cursor: pointer;          /* pointer cursor on hover */
+        border-radius: 5px;        /* rounded corners */
+        transition: 0.3s;         /* smooth transition */       
+        font-size: 0.8em;   /* smaller text for narrow screens */
+        padding: 6px;       /* smaller button height */
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: crimson;
+    }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>About page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/about.css">   
+</head>
+
+<body>
+
+    <header><img src="media/images/logo.png" alt="Martial Arts Logo"></header>
+
+    <!--Create a list of elements <ul></ul>-->
+    <nav>
+        <ul>
+            <!--Correct semantic structure for navigation menus - five proper list items, each containing one link-->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="enroll.html">Enroll</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Welcome to the Martial Arts School</h1>
+        <p>
+            Step into a world of discipline, strength, and focus. Our mission is to help you discover the power within - 
+            through dedication, respect, and perseverance. Whether you're a beginner or an experienced martial artist, 
+            this is where your transformation begins.
+        </p>
+        <p>
+            Take a moment to feel the rhythm, watch the flow of movement, and let the spirit of martial arts inspire you.
+        </p>
+
+        <div class="media-row">
+            <div class="media-item">
+                 <audio controls>
+                    <source src="media/audio/Kung Fu Panda.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio> 
+            </div>
+
+            <div class="media-item">
+                 <video width="320" height="240" controls>
+                    <source src="media/video/Ling Feng - Swordswoman of Yue.mp4" type="video/mp4">
+                    Your browser does not support the video element.
+                </video>   
+            </div>
+
+            <div class="media-item">
+                 <iframe 
+                    width="320"
+                    height="240"
+                    src="https://www.youtube.com/embed/_AtJi5fz_lo?si=93jjB8IMp9nFlyyM" 
+                    title="Martial Arts Demonstration" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>  
+            </div>
+
+        </div>     
+</main>
+
+
+    <footer>
+        <p>&copy; 2024 Martial Arts School. Website designed and built by Dumitru Craciun.</p>
+    </footer>
+
+
+</body>
+
+</html>
